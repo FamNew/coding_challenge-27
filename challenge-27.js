@@ -96,6 +96,15 @@ function check(){
             col=c;
             inc++;
             console.log (inc);
+            if (inc===30000){
+                if (confirm('This is taking a long time.  Would you like to continue?')){
+                    inc=0;
+                }else{
+                    r=8;
+                    c=8;
+                    reset();
+                };
+            }
             //if the cell is empty need to check if its row/col/square contain 1-9 and put the lowest possible value in it 
             if (sudukoArray[r][c].valueAsNumber===0){
                 checkRowCol(); 

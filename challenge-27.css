@@ -5,14 +5,18 @@ div {
 }
 button {
     text-align: center;
+    grid-column: span 1;
 }
 h1{
     text-align: center;
 }
+p{
+    grid-area: txt-area;
+}
 #sudukoPuzzle {
     margin-top: 15px;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: auto 33% auto;
    
 }
 #puzzle {
@@ -36,6 +40,10 @@ input {
     height: 15px;
     width: 30px;
 }
-.text{
-   
+.txt{
+    display: grid;
+    grid-template-areas: 'txt-area txt-area txt-area';
+    gap: 5px;
+   padding: 5px;
+   min-width: 300px;
 }
