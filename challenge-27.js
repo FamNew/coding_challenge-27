@@ -87,13 +87,15 @@ let a=1;
 let fillCells=[];
 let row=0;
 let col=0;
-
+let inc=0;
 function check(){     
     //using loops to check each row/col
     for (r=0; r<9; r++){
         row=r;
         for (c=0; c<9; c++){
             col=c;
+            inc++;
+            console.log (inc);
             //if the cell is empty need to check if its row/col/square contain 1-9 and put the lowest possible value in it 
             if (sudukoArray[r][c].valueAsNumber===0){
                 checkRowCol(); 
