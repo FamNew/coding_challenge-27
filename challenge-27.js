@@ -79,7 +79,6 @@ function solve(){
             return
         };
     };
-    console.log(sudukoArray);
     check();
     
 }; 
@@ -95,7 +94,6 @@ function check(){
         row=r;
         for (c=0; c<9; c++){
             col=c;
-            console.log(sudukoArray[r][c].value);
             //if the cell is empty need to check if its row/col/square contain 1-9 and put the lowest possible value in it 
             if (sudukoArray[r][c].valueAsNumber===0){
                 checkRowCol(); 
@@ -173,28 +171,37 @@ function checkA(){
 }
 
 function goBack(){
-    //sets row, col and a to take you back to the last cell filled out
-    row=fillCells[fillCells.length-1][0];
-    col=fillCells[fillCells.length-1][1];
-    sudukoArray[row][col].value=0;
-    a=fillCells[fillCells.length-1][2];
-    fillCells.pop(); 
-    //need to prevent errors/issue if the col or row goes neg so that it will still take you to the correct cell- have had issues when i didnt do it this way... there may be a more efficient way
-    col=col-1;
-    if (col===-1){
+    if (fillCells.length===0){
+        alert("This puzzle can not be solved.");
+        reset();
+        row=8;
         col=8;
-        row=row-1;
-        if (row===-1){
-            console.log('error');
-            row=0;
-            col=-1;
+        return;
+    }else{
+        //sets row, col and a to take you back to the last cell filled out
+        row=fillCells[fillCells.length-1][0];
+        col=fillCells[fillCells.length-1][1];
+        sudukoArray[row][col].value=0;
+        a=fillCells[fillCells.length-1][2];
+        fillCells.pop(); 
+        //need to prevent errors/issue if the col or row goes neg so that it will still take you to the correct cell
+        col=col-1;
+        if (col===-1){
+            col=8;
+            row=row-1;
+            if (row===-1){
+                //should take you to the very first cell
+                row=0;
+                col=-1;
+            }
+        }
+        checkA();
+        //if a was reset to 1 that means 9 was tried so you should go back to a previous cell again
+        if (a===1){
+            goBack();
         }
     }
-    checkA();
-    //if a was reset to 1 that means 9 was tried so you should go back to a previous cell again
-    if (a===1){
-        goBack();
-    }
+    
 }
 
 function reset(){

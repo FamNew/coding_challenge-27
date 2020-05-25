@@ -6,10 +6,13 @@ div {
 button {
     text-align: center;
 }
+h1{
+    text-align: center;
+}
 #sudukoPuzzle {
     margin-top: 15px;
     display: grid;
-    grid-template-columns: auto 30% auto;
+    grid-template-columns: 33% 33% 33%;
    
 }
 #puzzle {
@@ -32,4 +35,7 @@ button {
 input {
     height: 15px;
     width: 30px;
+}
+.text{
+   
 }
