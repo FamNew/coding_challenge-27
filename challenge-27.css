@@ -1,0 +1,35 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    text-align: center;
+}
+#sudukoPuzzle {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: auto 30% auto;
+   
+}
+#puzzle {
+    display: grid;
+    grid-template-columns:auto auto auto ; 
+   
+}
+.square {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+    border: 3px solid black;
+    
+}
+.cell {
+    border: 1px solid darkslategrey;
+    padding: 5px;
+}
+
+input {
+    height: 15px;
+    width: 30px;
+}
